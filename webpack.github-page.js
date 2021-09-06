@@ -10,7 +10,7 @@ module.exports = merge(config, {
   mode: 'production',
   output: {
     path: path.resolve(__dirname, 'dist_github_page'),
-    publicPath: '/fe-starter/',
+    publicPath: '/',
     filename: 'assets/scripts/[name].[chunkhash].js',
     chunkFilename: 'assets/scripts/[name].[chunkhash].js',
   },
