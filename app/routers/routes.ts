@@ -26,17 +26,6 @@ const pcRoutes: IRouteConfig[] = [
       },
     ],
   },
-  {
-    title: 'Backend Demo',
-    code: 'backend-demo',
-    children: [
-      {
-        title: 'User',
-        link: '/backend-demo/user',
-        component: (): ILoadComponent => import('src/components/backendDemo/User'),
-      },
-    ],
-  },
 ];
 
 const mobileRoutes: IRouteConfig[] = [

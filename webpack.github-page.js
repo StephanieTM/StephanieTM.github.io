@@ -1,6 +1,5 @@
 const { merge } = require('webpack-merge');
 const path = require('path');
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -31,7 +30,6 @@ module.exports = merge(config, {
       inject: false,
       template: './app/views/github-page/404.ejs',
     }),
-    // new BundleAnalyzerPlugin(),
   ],
   optimization: {
     usedExports: true,
