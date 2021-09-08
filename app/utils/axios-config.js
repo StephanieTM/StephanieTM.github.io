@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { message } from 'antd';
 
 export function configAxios() {
   axios.interceptors.response.use(response => {
@@ -7,9 +6,9 @@ export function configAxios() {
   }, error => {
     if (error.response.config.headers.silent !== true) {
       if (error.response.status === 404) {
-        message.error(`${error.response.status}, ${error.response.config.url} not found.`);
+        console.error(`${error.response.status}, ${error.response.config.url} not found.`);
       } else {
-        message.error(error.response.data.message || error.response.data.error || error.response.data);
+        console.error(error.response.data.message || error.response.data.error || error.response.data);
       }
     }
   

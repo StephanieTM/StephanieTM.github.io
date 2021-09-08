@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { hot } from 'react-hot-loader/root';
+import { ChakraProvider } from '@chakra-ui/react';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
+import { theme } from './theme';
 import { configAxios } from './utils/axios-config';
 import AppLayout from './layout';
 import GlobalStore from './layout/global-store';
@@ -14,7 +16,9 @@ dayjs.locale('zh-cn');
 function App(): JSX.Element {
   return (
     <GlobalStore.Provider>
-      <AppLayout />
+      <ChakraProvider theme={theme}>
+        <AppLayout />
+      </ChakraProvider>
     </GlobalStore.Provider>
   );
 }

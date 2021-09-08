@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Spin } from 'antd';
 import { IRouteConfig } from 'app/routers/routes';
 import Footer from './Footer';
 import './index.less';
@@ -14,7 +13,7 @@ export default function Layout(props: IMobileLayoutProps): JSX.Element {
 
   return (
     <div className="app-container">
-      <Suspense fallback={<Spin spinning tip="Loading..." />}>
+      <Suspense fallback={"Loading..."}>
         <Switch>
           {
             routes.map(route => (route.component && route.link) ?

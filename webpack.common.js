@@ -3,7 +3,6 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -94,7 +93,6 @@ module.exports = {
         { from: 'assets/images', to: 'assets/images' },
       ],
     }),
-    new AntdDayjsWebpackPlugin(),
     new webpack.ProgressPlugin({ profile: false }),
   ],
   output: {
