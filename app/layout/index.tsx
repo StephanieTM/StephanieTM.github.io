@@ -1,9 +1,8 @@
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { IRouteConfig, mobileRoutes, pcRoutes } from 'app/routers/routes';
-import GlobalStore from './global-store';
-import PCLayout from './pc';
-import MobileLayout from './mobile';
+import React, { lazy, Suspense } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { IRouteConfig, routes } from 'app/routers/routes';
+// import GlobalStore from './global-store';
+import Header from './Header';
 
 function getRoutes(allRouters: IRouteConfig[]): IRouteConfig[] {
   const getFlattenRoutes = (routeItem: IRouteConfig[] = allRouters, result: IRouteConfig[] = []): IRouteConfig[] => {
@@ -21,12 +20,23 @@ function getRoutes(allRouters: IRouteConfig[]): IRouteConfig[] {
 }
 
 export default function AppLayout(): JSX.Element {
-  const { isMobile } = GlobalStore.useContainer();
-  const routes = getRoutes(isMobile ? mobileRoutes : pcRoutes);
+  // const { isMobile } = GlobalStore.useContainer();
+  const flattenRoutes = getRoutes(routes);
 
   return (
-    <Router>
-      {isMobile ? <MobileLayout routes={routes} /> : <PCLayout routes={routes} />}
-    </Router>
+    <div>
+      <Header />
+      <div>
+        <Suspense fallback={''}>
+          <Switch>
+            {
+              flattenRoutes.map(route => (route.component && route.link) ?
+                <Route key={route.link} exact path={route.link} component={lazy(route.component)} /> :
+                null)
+            }
+          </Switch>
+        </Suspense>
+      </div>
+    </div>
   );
 }
