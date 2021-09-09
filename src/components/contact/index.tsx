@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function AboutMe(): JSX.Element {
+export default function Contact(): JSX.Element {
   return (
     <div>
-      About Me
+      Contact
     </div>
   );
 }
