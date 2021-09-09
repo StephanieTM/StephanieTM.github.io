@@ -1,0 +1,1 @@
+(self.webpackChunkfe_proj=self.webpackChunkfe_proj||[]).push([[960],{1960:function(e,n,u){"use strict";u.r(n),u.d(n,{default:function(){return r}});var t=u(7294);function r(){return t.createElement("div",null,"About Me")}}}]);

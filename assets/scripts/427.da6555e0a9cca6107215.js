@@ -1,0 +1,1 @@
+(self.webpackChunkfe_proj=self.webpackChunkfe_proj||[]).push([[427],{4427:function(e,n,r){"use strict";r.r(n),r.d(n,{default:function(){return u}});var t=r(7294);function u(){return t.createElement("div",null,"Projects")}}}]);
