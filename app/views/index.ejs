@@ -15,6 +15,7 @@
   <style>
     .app-loading-container {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 100%;
@@ -26,6 +27,11 @@
       width: 40px;
       height: 40px;
       animation: app-loading 2.5s infinite linear both;
+    }
+
+    .app-loading-tips {
+      margin-top: 20px;
+      color: #ffc98c;
     }
 
     .app-loading-dot {
@@ -42,7 +48,7 @@
       width: 25%;
       height: 25%;
       content: '';
-      background-color: rgb(255, 151, 32);
+      background-color: #ff9720;
       border-radius: 100%;
       animation: app-loading-dot-before 2s infinite ease-in-out both;
     }
@@ -90,6 +96,7 @@
         <div class="app-loading-dot"></div>
         <div class="app-loading-dot"></div>
       </div>
+      <div class="app-loading-tips">Loading...</div>
     </div>
   </div>
   <%= htmlWebpackPlugin.tags.bodyTags %>

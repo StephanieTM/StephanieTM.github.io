@@ -1,7 +1,7 @@
 import { ComponentType } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
-export type ILoadComponent = Promise<{ default: ComponentType<RouteComponentProps>}>;
+export type ILoadComponent = Promise<{ default: ComponentType<RouteComponentProps> }>;
 
 export interface IRouteConfig {
   title: string;
@@ -18,12 +18,19 @@ export const routes: IRouteConfig[] = [
   {
     title: 'Home',
     code: 'home',
-    children: [
-      {
-        title: 'Hello World',
-        link: '/',
-        component: (): ILoadComponent => import('src/components/helloWorld'),
-      },
-    ],
+    link: '/',
+    component: () => import('src/components/homepage'),
   },
+  {
+    title: 'Projects',
+    code: 'projects',
+    link: '/projects',
+    component: () => import('src/components/projects'),
+  },
+  {
+    title: 'AboutMe',
+    code: 'aboutme',
+    link: '/about-me',
+    component: () => import('src/components/aboutme'),
+  }
 ];
