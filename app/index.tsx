@@ -6,7 +6,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import { theme } from './theme';
-import { configAxios } from './utils/axios-config';
+import { configAxios } from './config/axios-config';
 import AppLayout from './layout';
 import GlobalStore from './layout/global-store';
 import './index.less';

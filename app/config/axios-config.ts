@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export function configAxios() {
+export function configAxios(): void {
   axios.interceptors.response.use(response => {
     return response.data;
   }, error => {

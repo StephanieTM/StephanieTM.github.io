@@ -1,8 +1,8 @@
 import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { IRouteConfig, routes } from 'app/routers/routes';
-// import GlobalStore from './global-store';
 import Header from './Header';
+import './index.less';
 
 function getRoutes(allRouters: IRouteConfig[]): IRouteConfig[] {
   const getFlattenRoutes = (routeItem: IRouteConfig[] = allRouters, result: IRouteConfig[] = []): IRouteConfig[] => {
@@ -20,7 +20,6 @@ function getRoutes(allRouters: IRouteConfig[]): IRouteConfig[] {
 }
 
 export default function AppLayout(): JSX.Element {
-  // const { isMobile } = GlobalStore.useContainer();
   const flattenRoutes = getRoutes(routes);
 
   return (

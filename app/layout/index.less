@@ -1,0 +1,45 @@
+.app-header-container {
+  background-color: @primary;
+
+  &-pc {
+    height: 60px;
+    padding: 0 @pc-container-padding;
+  }
+
+  &-mobile {
+    height: 4rem;
+    padding: 0 @mobile-container-padding;
+  }
+
+  .menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    margin: auto;
+
+    &-pc {
+      column-gap: @pc-container-padding;
+      max-width: @pc-max-container-width;
+      font-size: 16px;
+    }
+
+    &-mobile {
+      column-gap: @mobile-container-padding;
+      font-size: 1rem;
+    }
+
+    .menu-link {
+      color: @font-color;
+
+      &-pc {
+        border-bottom: 2px dashed transparent;
+        transition: border-bottom-color 0.8s;
+
+        &:hover {
+          border-bottom: 2px dashed @font-color;
+        }
+      }
+    }
+  }
+}

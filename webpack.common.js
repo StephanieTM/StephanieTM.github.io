@@ -51,11 +51,12 @@ module.exports = {
             options: {
               lessOptions: {
                 modifyVars: {
-                  'primary-color': '#763857',
-                  'secondary-color': '#eeccdd',
-                  'border-radius-base': '5px',
-                  'padding-md': '12px',
-                  'btn-default-color': 'rgba(0, 0, 0, 0.6)'
+                  '@primary': '#ff9720',
+                  '@secondary': '#ffc98c',
+                  '@font-color': '#1a202c',
+                  '@pc-max-container-width': '800px',
+                  '@pc-container-padding': '40px',
+                  '@mobile-container-padding': '2rem',
                 },
                 javascriptEnabled: true,
               }
