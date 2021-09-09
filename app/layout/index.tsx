@@ -1,7 +1,7 @@
-import React, { lazy, Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React from 'react';
 import { IRouteConfig, routes } from 'app/routers/routes';
 import Header from './Header';
+import Body from './Body';
 import './index.less';
 
 function getRoutes(allRouters: IRouteConfig[]): IRouteConfig[] {
@@ -23,19 +23,9 @@ export default function AppLayout(): JSX.Element {
   const flattenRoutes = getRoutes(routes);
 
   return (
-    <div>
+    <div className="app-container">
       <Header />
-      <div>
-        <Suspense fallback={''}>
-          <Switch>
-            {
-              flattenRoutes.map(route => (route.component && route.link) ?
-                <Route key={route.link} exact path={route.link} component={lazy(route.component)} /> :
-                null)
-            }
-          </Switch>
-        </Suspense>
-      </div>
+      <Body routes={flattenRoutes} />
     </div>
   );
 }

@@ -56,7 +56,9 @@ module.exports = {
                   '@font-color': '#1a202c',
                   '@pc-max-container-width': '800px',
                   '@pc-container-padding': '40px',
-                  '@mobile-container-padding': '2rem',
+                  '@mobile-container-padding': '1.5rem',
+                  '@pc-header-height': '60px',
+                  '@mobile-header-height': '4rem',
                 },
                 javascriptEnabled: true,
               }

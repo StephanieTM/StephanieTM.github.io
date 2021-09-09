@@ -1,13 +1,20 @@
+.app-container {
+  height: 100%;
+}
+
 .app-header-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
   background-color: @primary;
 
   &-pc {
-    height: 60px;
+    height: @pc-header-height;
     padding: 0 @pc-container-padding;
   }
 
   &-mobile {
-    height: 4rem;
+    height: @mobile-header-height;
     padding: 0 @mobile-container-padding;
   }
 
@@ -19,13 +26,11 @@
     margin: auto;
 
     &-pc {
-      column-gap: @pc-container-padding;
       max-width: @pc-max-container-width;
       font-size: 16px;
     }
 
     &-mobile {
-      column-gap: @mobile-container-padding;
       font-size: 1rem;
     }
 
@@ -33,6 +38,7 @@
       color: @font-color;
 
       &-pc {
+        margin-left: @pc-container-padding;
         border-bottom: 2px dashed transparent;
         transition: border-bottom-color 0.8s;
 
@@ -40,6 +46,55 @@
           border-bottom: 2px dashed @font-color;
         }
       }
+
+      &-mobile {
+        margin-left: @mobile-container-padding;
+      }
+    }
+  }
+}
+
+.app-body-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  &-pc {
+    height: calc(100vh - @pc-header-height);
+  }
+
+  &-mobile {
+    height: calc(100vh - @mobile-header-height);
+  }
+}
+
+.app-body-container {
+  height: 100%;
+
+  &-pc {
+    padding: @pc-header-height @pc-container-padding;
+  }
+
+  &-mobile {
+    padding: @mobile-header-height @mobile-container-padding;
+  }
+
+  .app-body-content {
+    margin: auto;
+
+    &-pc {
+      max-width: @pc-max-container-width;
+    }
+  }
+
+  .app-body-route {
+    &-pc {
+      padding: @pc-container-padding 0;
+    }
+
+    &-mobile {
+      padding: @mobile-container-padding 0;
     }
   }
 }
