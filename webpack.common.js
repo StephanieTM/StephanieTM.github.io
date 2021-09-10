@@ -51,8 +51,8 @@ module.exports = {
             options: {
               lessOptions: {
                 modifyVars: {
-                  '@primary': '#ff9720',
-                  '@secondary': '#ffc98c',
+                  '@primary': '#2f855a',
+                  '@secondary': '#68d391',
                   '@font-color': '#1a202c',
                   '@pc-max-container-width': '800px',
                   '@pc-container-padding': '40px',

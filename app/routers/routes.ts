@@ -27,10 +27,4 @@ export const routes: IRouteConfig[] = [
     link: '/projects',
     component: () => import('src/components/projects'),
   },
-  {
-    title: 'AboutMe',
-    code: 'aboutme',
-    link: '/about-me',
-    component: () => import('src/components/aboutme'),
-  }
 ];

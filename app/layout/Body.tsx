@@ -22,21 +22,22 @@ export default function Body(props: IBodyProps): JSX.Element {
   return (
     <div className={c('app-body-container')}>
       <div className={c('app-body-content')}>
-        <Suspense fallback={spinner}>
-          <Switch>
-            {
-              routes.map(route => (route.component && route.link) ? (
-                <div key={route.link} className={c('app-body-route')}>
+        <div className={c('app-body-route')}>
+          <Suspense fallback={spinner}>
+            <Switch>
+              {
+                routes.map(route => (route.component && route.link) ? (
                   <Route
+                    key={route.link}
                     exact
                     path={route.link}
                     component={lazy(route.component)}
                   />
-                </div>
-              ) : null)
-            }
-          </Switch>
-        </Suspense>
+                ) : null)
+              }
+            </Switch>
+          </Suspense>
+        </div>
       </div>
     </div>
   );
