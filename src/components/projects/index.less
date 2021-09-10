@@ -1,0 +1,57 @@
+.projects {
+  .project-container {
+    padding: 30px 0;
+
+    .project-name {
+      display: flex;
+      align-items: baseline;
+      font-size: 20px;
+
+      .icon {
+        position: relative;
+        top: 2px;
+        margin-right: 10px;
+        color: @primary;
+      }
+
+      .name {
+        width: calc(100% - 30px);
+      }
+    }
+
+    .project-item {
+      margin: 10px 0 0 30px;
+    }
+
+    .project-info {
+      margin: 10px 0;
+    }
+
+    .project-detail {
+      margin: 10px 0;
+    }
+
+    .project-detail-item {
+      .content {
+        display: flex;
+        align-items: baseline;
+        margin: 10px 0;
+
+        .content-icon {
+          position: relative;
+          top: 2px;
+          margin-right: 6px;
+        }
+
+        .content-text {
+          width: calc(100% - 22px);
+          line-height: 2;
+        }
+      }
+
+      .children {
+        padding-left: 10px;
+      }
+    }
+  }
+}

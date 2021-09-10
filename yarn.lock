@@ -6907,6 +6907,11 @@ react-hot-loader@^4.13.0:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
+react-icons@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.npm.taobao.org/react-icons/download/react-icons-4.2.0.tgz?cache=0&sync_timestamp=1612674945377&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-icons%2Fdownload%2Freact-icons-4.2.0.tgz#6dda80c8a8f338ff96a1851424d63083282630d0"
+  integrity sha1-bdqAyKjzOP+WoYUUJNYwgygmMNA=
+
 react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.13.1.tgz?cache=0&sync_timestamp=1615911658012&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-is%2Fdownload%2Freact-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"

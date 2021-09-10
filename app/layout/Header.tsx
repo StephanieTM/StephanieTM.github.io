@@ -10,7 +10,7 @@ export default function Header(): JSX.Element {
       <div className={c('menu-container')}>
         <Link to="/" className={c('menu-link')}>Home</Link>
         <Link to="/projects" className={c('menu-link')}>Projects</Link>
-        <Link to="/about-me" className={c('menu-link')}>AboutMe</Link>
+        <a className={c('menu-link')} href="https://github.com/StephanieTM" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </div>
   );
