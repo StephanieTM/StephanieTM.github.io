@@ -15,7 +15,7 @@ export const projects: IProject[] = [{
       content: 'This repo is a frontend project scaffolding, aimed at quickly building a React SPA frontend project with out-of-box properly configured webpack, Typescript, Babel, es-lint, husky commit-lint etc.',
       children: [],
     }, {
-      content: 'GitHub Template Repository is used to host this project. As a result you can generate a new repo by using this template, it\'s quite convenient.',
+      content: 'GitHub Template Repository is used to host this project. As a result you can generate a new repo by using this template, which is quite convenient.',
       children: [],
     }, {
       content: 'GitHub Pages auto-publishment is supported with GitHub Action CI and navigtion for React Router SPA is well-optimized, so that your project demo website can be automatically built and published once you push your code to the specified branch.',
