@@ -53,8 +53,9 @@ body {
 .app-header-container {
   position: fixed;
   top: 0;
+  z-index: 500;
   width: 100%;
-  background-color: #ff9720;
+  background-color: #2f855a;
 }
 .app-header-container-pc {
   height: 60px;
@@ -79,7 +80,7 @@ body {
   font-size: 1rem;
 }
 .app-header-container .menu-container .menu-link {
-  color: #1a202c;
+  color: #fff;
 }
 .app-header-container .menu-container .menu-link-pc {
   margin-left: 40px;
@@ -87,7 +88,7 @@ body {
   transition: border-bottom-color 0.8s;
 }
 .app-header-container .menu-container .menu-link-pc:hover {
-  border-bottom: 2px dashed #1a202c;
+  border-bottom: 2px dashed #fff;
 }
 .app-header-container .menu-container .menu-link-mobile {
   margin-left: 1.5rem;
@@ -124,5 +125,13 @@ body {
 }
 .app-body-container .app-body-route-mobile {
   padding: 1.5rem 0;
+}
+.common-content-link {
+  color: #2f855a;
+  border-bottom: 2px solid #2f855a;
+  transition: border-color 0.6s;
+}
+.common-content-link:hover {
+  border-bottom: 2px solid transparent;
 }
 
