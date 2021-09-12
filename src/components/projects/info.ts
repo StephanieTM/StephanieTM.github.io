@@ -38,7 +38,7 @@ export const projects: IProject[] = [{
       content: 'I started this project to assist Computer Graphics studying by implementing interactive computer graphic rendering with original WebGL and glsl shaders.',
       children: [],
     }, {
-      content: 'This repo is inspired by "Interactive Computer Graphics, A top-down approach with WebGL (Seventh Edition)" written by <a class="common-content-link" href="https://www.cs.unm.edu/~angel/" target="_blank" rel="noopener noreferrer">Prof. Edward Angel</a>. I rewrote MV.js in typescript, which includes help funcs for vectors and matrix needed by rendering 3D graphics with WebGL.',
+      content: 'This repo is inspired by <span class="common-content-quote">Interactive Computer Graphics, A top-down approach with WebGL (Seventh Edition)</span> written by <a class="common-content-link" href="https://www.cs.unm.edu/~angel/" target="_blank" rel="noopener noreferrer">Prof. Edward Angel</a>. I rewrote MV.js in typescript, which includes help funcs for vectors and matrix needed by rendering 3D graphics with WebGL.',
       children: [],
     }, {
       content: 'I wrote several handy hooks for WebGL app and learnt how to write glsl shaders.',

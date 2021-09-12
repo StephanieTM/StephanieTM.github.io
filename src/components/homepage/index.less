@@ -1,6 +1,51 @@
 .homepage {
-  & > p {
+  p {
     margin: 30px 0;
     line-height: 2;
+  }
+
+  .hello-pc {
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .module-container-mobile {
+    .module-title {
+      font-size: 24px;
+      font-weight: 800;
+    }
+  }
+
+  .module-container-pc {
+    display: flex;
+    padding: 40px 0;
+
+    .module-title {
+      flex-shrink: 0;
+      margin-top: 20px;
+      font-size: 80px;
+    }
+
+    .module-content {
+      font-size: 18px;
+    }
+
+    &:nth-of-type(odd) {
+      flex-direction: row;
+
+      .module-title {
+        margin-right: 40px;
+        text-align: left;
+      }
+    }
+
+    &:nth-of-type(even) {
+      flex-direction: row-reverse;
+
+      .module-title {
+        margin-left: 40px;
+        text-align: right;
+      }
+    }
   }
 }

@@ -54,6 +54,7 @@ module.exports = {
                   '@primary': '#2f855a',
                   '@secondary': '#68d391',
                   '@font-color': '#1a202c',
+                  '@font-color-secondary': '#718096',
                   '@pc-max-container-width': '800px',
                   '@pc-container-padding': '40px',
                   '@mobile-container-padding': '1.5rem',
