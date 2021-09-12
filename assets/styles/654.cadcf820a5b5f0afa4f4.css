@@ -1,0 +1,39 @@
+.homepage p {
+  margin: 30px 0;
+  line-height: 2;
+}
+.homepage .hello-pc {
+  font-size: 18px;
+  text-align: right;
+}
+.homepage .module-container-mobile .module-title {
+  font-size: 24px;
+  font-weight: 800;
+}
+.homepage .module-container-pc {
+  display: flex;
+  padding: 40px 0;
+}
+.homepage .module-container-pc .module-title {
+  flex-shrink: 0;
+  margin-top: 20px;
+  font-size: 80px;
+}
+.homepage .module-container-pc .module-content {
+  font-size: 18px;
+}
+.homepage .module-container-pc:nth-of-type(odd) {
+  flex-direction: row;
+}
+.homepage .module-container-pc:nth-of-type(odd) .module-title {
+  margin-right: 40px;
+  text-align: left;
+}
+.homepage .module-container-pc:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+.homepage .module-container-pc:nth-of-type(even) .module-title {
+  margin-left: 40px;
+  text-align: right;
+}
+

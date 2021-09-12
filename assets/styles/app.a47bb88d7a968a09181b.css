@@ -128,10 +128,14 @@ body {
 }
 .common-content-link {
   color: #2f855a;
-  border-bottom: 2px solid #2f855a;
-  transition: border-color 0.6s;
+  text-decoration: underline 2px solid #2f855a;
+  transition: text-decoration 0.6s;
 }
 .common-content-link:hover {
-  border-bottom: 2px solid transparent;
+  text-decoration: underline 2px solid transparent;
+}
+.common-content-quote {
+  font-style: italic;
+  color: #718096;
 }
 
