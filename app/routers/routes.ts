@@ -19,7 +19,7 @@ export const routes: IRouteConfig[] = [
     title: 'Home',
     code: 'home',
     link: '/',
-    component: () => import('src/components/homepage'),
+    component: () => import('src/components/homepage-effects'),
   },
   {
     title: 'Projects',
