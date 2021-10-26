@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Canvas from './src/Canvas';
 import './index.less';
 
@@ -16,6 +17,7 @@ export default function Homepage(): JSX.Element {
               <h2>Services</h2>
               <h1>Web Design &amp; Development</h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <Link to="/projects">Projects</Link>
             </div>
           </div>
 

@@ -2,6 +2,7 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import Flickity from 'flickity';
+import 'flickity/css/flickity.css';
 import { getGraphicPos, randomPos } from './utils';
 import { canvasWidth, canvasHeight, cameraLookAt } from './constants';
 import Particle from './Particle';
@@ -25,7 +26,7 @@ export default function Canvas(props: { mainContainer: React.MutableRefObject<HT
 
   const graphics = useRef<NodeListOf<Element>>();
   const currentGraphic = useRef(0);
-  const graphicCanvas = useRef<HTMLCanvasElement>(null);
+  const graphicCanvas = useRef<HTMLCanvasElement>();
   const gctx = useRef<CanvasRenderingContext2D|null>();
   const graphicPixels = useRef<IPixel[]>([]);
   const particles = useRef<IParticle[]>([]);
@@ -97,12 +98,11 @@ export default function Canvas(props: { mainContainer: React.MutableRefObject<HT
   }, []);
 
   const initCanvas = useCallback(() => {
-    if (graphicCanvas.current) {
-      graphicCanvas.current.width = canvasWidth;
-      graphicCanvas.current.height = canvasHeight;
-      gctx.current = graphicCanvas.current.getContext('2d');
-      graphics.current = document.querySelectorAll('.intro-cell > img');
-    }
+    graphicCanvas.current = document.createElement('canvas');
+    graphicCanvas.current.width = canvasWidth;
+    graphicCanvas.current.height = canvasHeight;
+    gctx.current = graphicCanvas.current.getContext('2d');
+    graphics.current = document.querySelectorAll('.intro-cell > img');
   }, []);
 
   const updateParticles = useCallback(() => {
@@ -185,7 +185,7 @@ export default function Canvas(props: { mainContainer: React.MutableRefObject<HT
   }, []);
 
   const initSlider = useCallback(() => {
-    const elem = document.querySelector('.init-carousel');
+    const elem = document.querySelector('.intro-carousel');
     if (elem) {
       const flkty = new Flickity(elem, {
         cellAlign: 'center',
@@ -231,6 +231,6 @@ export default function Canvas(props: { mainContainer: React.MutableRefObject<HT
   }, [animate, initBgObjects, initCamera, initCanvas, initScene, initSlider, initStage, updateGraphics]);
 
   return (
-    <canvas ref={graphicCanvas}></canvas>
+    <></>
   );
 }
