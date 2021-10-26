@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Canvas from './src/Canvas';
+// import Canvas from './src/CanvasClass';
 import './index.less';
 
 export default function Homepage(): JSX.Element {
