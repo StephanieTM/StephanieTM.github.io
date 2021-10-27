@@ -23,6 +23,25 @@ export const projects: IProject[] = [{
     }],
   }],
 }, {
+  name: 'proj-builder: A Node.js Commandline tool aimed at helping building new projects effectively',
+  repo: 'https://github.com/StephanieTM/proj-builder',
+  detail: [{
+    content: 'Tech Stack',
+    children: [{
+      content: 'Node.js',
+      children: [],
+    }],
+  }, {
+    content: 'Intro',
+    children: [{
+      content: 'This repo is a cli tool for the previous project.',
+      children: [],
+    }, {
+      content: 'The package has been published to NPM and you can find it via <a class="common-content-link" href="https://www.npmjs.com/package/@stephanietm/proj-builder" target="_blank" rel="noopener noreferrer">https://www.npmjs.com/package/@stephanietm/proj-builder</a>',
+      children: [],
+    }],
+  }],
+}, {
   name: 'webgl-digging: An interactive computer graphics project',
   repo: 'https://github.com/StephanieTM/webgl-digging',
   demo: 'https://stephanietm.github.io/webgl-digging',
