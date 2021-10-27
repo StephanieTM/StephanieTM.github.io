@@ -1,8 +1,12 @@
 import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import withRouteContainer from 'app/layout/withRouteContainer';
 import Canvas from './src/Canvas';
 import './index.less';
 
-export default function Homepage(): JSX.Element {
+export default withRouteContainer(Homepage);
+
+function Homepage(): JSX.Element {
   const mainContainer = useRef(null);
 
   return (
@@ -25,7 +29,7 @@ export default function Homepage(): JSX.Element {
           <div className="intro-cell">
             <div className="intro-text">
               <p>The reason I chose to be a frontend developer is that I found myself interested in User Interface and I could empathize with users of my application.</p>
-              <p>Recently, Computer Graphics has become my new learning direction and I&apos;m working on WebGL these days. You can find my personal projects <a className="common-content-link" href="/projects">here</a>.</p>
+              <p>Recently, Computer Graphics has become my new learning direction and I&apos;m working on WebGL these days. You can find my personal projects <Link className="common-content-link" to="/projects">here</Link>.</p>
             </div>
           </div>
 
