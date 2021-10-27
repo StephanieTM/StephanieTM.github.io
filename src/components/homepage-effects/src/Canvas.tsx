@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import Flickity from 'flickity';
 import 'flickity/css/flickity.css';
-import { getGraphicPos, randomPos } from './utils';
+import { getGraphicPos, imageSrc, randomPos } from './utils';
 import { canvasWidth, canvasHeight, cameraLookAt } from './constants';
 import Particle from './Particle';
 import { IParticle, IPixel } from './interface';
@@ -24,7 +24,7 @@ export default function Canvas(props: { mainContainer: React.MutableRefObject<HT
   const camera = useRef<THREE.PerspectiveCamera>();
   const cameraTarget = useRef(new THREE.Vector3(0, 0, 800));
 
-  const graphics = useRef<NodeListOf<Element>>();
+  const images = useRef(new Map());
   const currentGraphic = useRef(0);
   const graphicCanvas = useRef<HTMLCanvasElement>();
   const gctx = useRef<CanvasRenderingContext2D|null>();
@@ -102,7 +102,6 @@ export default function Canvas(props: { mainContainer: React.MutableRefObject<HT
     graphicCanvas.current.width = canvasWidth;
     graphicCanvas.current.height = canvasHeight;
     gctx.current = graphicCanvas.current.getContext('2d');
-    graphics.current = document.querySelectorAll('.intro-cell > img');
   }, []);
 
   const updateParticles = useCallback(() => {
@@ -137,38 +136,53 @@ export default function Canvas(props: { mainContainer: React.MutableRefObject<HT
   }, []);
 
   const updateGraphics = useCallback(() => {
-    if (graphics.current && gctx.current && windowWidth.current) {
-      const img = graphics.current[currentGraphic.current] as HTMLImageElement;
-      console.log('img :>> ', img);
-      gctx.current.drawImage(img, 0, 0, canvasWidth, canvasHeight);
+    const calculate = () => {
+      if (gctx.current && windowWidth.current && images.current.has(currentGraphic.current)) {
+        gctx.current.drawImage(images.current.get(currentGraphic.current), 0, 0, canvasWidth, canvasHeight);
+        const gData = gctx.current.getImageData(0, 0, canvasWidth, canvasHeight).data;
+        graphicPixels.current = [];
 
-      setTimeout(() => {
-        if (gctx.current && windowWidth.current) {
-          const gData = gctx.current.getImageData(0, 0, canvasWidth, canvasHeight).data;
-          console.log('gData :>> ', gData);
-          graphicPixels.current = [];
+        let count = 0;
+
+        for (let i = gData.length; i >= 0; i -= 4) {
+          if (gData[i] === 0) {
+            count++;
+            const x = i / 4 % canvasWidth;
+            const y = canvasHeight - Math.floor(Math.floor(i / canvasWidth) / 4);
     
-          for (let i = gData.length; i >= 0; i -= 4) {
-            if (gData[i] === 0) {
-              const x = i / 4 % canvasWidth;
-              const y = canvasHeight - Math.floor(Math.floor(i / canvasWidth) / 4);
-      
-              if (x && x % 2 === 0 && y && y % 2 === 0) {
-                graphicPixels.current.push({ x, y });
-              }
+            if (x && x % 2 === 0 && y && y % 2 === 0) {
+              graphicPixels.current.push({ x, y });
             }
           }
-      
-          for (let i = 0; i < particles.current.length; i++) {
-            randomPos((particles.current[i].particle as any).targetPosition, false, windowWidth.current);
-          }
-      
-          setTimeout(() => {
-            setParticles();
-          }, 500);
         }
-      }, 0);
 
+        console.log('count :>> ', count);
+    
+        for (let i = 0; i < particles.current.length; i++) {
+          randomPos((particles.current[i].particle as any).targetPosition, false, windowWidth.current);
+        }
+    
+        setTimeout(() => {
+          setParticles();
+        }, count / 150);
+      }
+    };
+
+    if (gctx.current && windowWidth.current) {
+      if (!images.current.has(currentGraphic.current)) {
+        const image = new Image();
+        image.setAttribute('crossOrigin', 'anonymous');
+        image.onload = () => {
+          images.current.set(currentGraphic.current, image);
+          calculate();
+        };
+        const src = imageSrc[currentGraphic.current];
+        if (src) {
+          image.src = src;
+        }
+      } else {
+        calculate();
+      }
     }
   }, [setParticles]);
 
@@ -223,7 +237,6 @@ export default function Canvas(props: { mainContainer: React.MutableRefObject<HT
     initCamera();
     initSlider();
     initBgObjects();
-    currentGraphic.current = 0;
     updateGraphics();
   }, [initBgObjects, initCamera, initCanvas, initScene, initSlider, initStage, updateGraphics]);
 
