@@ -142,6 +142,7 @@ export default function Canvas(props: { mainContainer: React.MutableRefObject<HT
       gctx.current.drawImage(img, 0, 0, canvasWidth, canvasHeight);
 
       const gData = gctx.current.getImageData(0, 0, canvasWidth, canvasHeight).data;
+      console.log('gData :>> ', gData);
       graphicPixels.current = [];
 
       for (let i = gData.length; i >= 0; i -= 4) {
@@ -209,16 +210,6 @@ export default function Canvas(props: { mainContainer: React.MutableRefObject<HT
     }
   } , []);
 
-  const animate = useCallback(() => {
-    requestAnimationFrame(animate);
-    updateParticles();
-    if (camera.current) {
-      camera.current.position.lerp(cameraTarget.current, 0.2);
-      camera.current.lookAt(cameraLookAt);
-      render();
-    }
-  }, [render, updateParticles]);
-
   useEffect(() => {
     initStage();
     initScene();
@@ -227,8 +218,27 @@ export default function Canvas(props: { mainContainer: React.MutableRefObject<HT
     initSlider();
     initBgObjects();
     updateGraphics();
+  }, [initBgObjects, initCamera, initCanvas, initScene, initSlider, initStage, updateGraphics]);
+
+  useEffect(() => {
+    let refreshId = 0;
+
+    const animate = () => {
+      refreshId = requestAnimationFrame(animate);
+      updateParticles();
+      if (camera.current) {
+        camera.current.position.lerp(cameraTarget.current, 0.2);
+        camera.current.lookAt(cameraLookAt);
+        render();
+      }
+    };
+
     animate();
-  }, [animate, initBgObjects, initCamera, initCanvas, initScene, initSlider, initStage, updateGraphics]);
+
+    return () => {
+      cancelAnimationFrame(refreshId);
+    };
+  }, [render, updateParticles]);
 
   return (
     <></>
