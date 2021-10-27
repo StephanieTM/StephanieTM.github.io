@@ -139,30 +139,36 @@ export default function Canvas(props: { mainContainer: React.MutableRefObject<HT
   const updateGraphics = useCallback(() => {
     if (graphics.current && gctx.current && windowWidth.current) {
       const img = graphics.current[currentGraphic.current] as HTMLImageElement;
+      console.log('img :>> ', img);
       gctx.current.drawImage(img, 0, 0, canvasWidth, canvasHeight);
 
-      const gData = gctx.current.getImageData(0, 0, canvasWidth, canvasHeight).data;
-      console.log('gData :>> ', gData);
-      graphicPixels.current = [];
-
-      for (let i = gData.length; i >= 0; i -= 4) {
-        if (gData[i] == 0) {
-          const x = i / 4 % canvasWidth;
-          const y = canvasHeight - Math.floor(Math.floor(i / canvasWidth) / 4);
-  
-          if (x && x % 2 === 0 && y && y % 2 === 0) {
-            graphicPixels.current.push({ x, y });
-          }
-        }
-      }
-  
-      for (let i = 0; i < particles.current.length; i++) {
-        randomPos((particles.current[i].particle as any).targetPosition, false, windowWidth.current);
-      }
-  
       setTimeout(() => {
-        setParticles();
-      }, 500);
+        if (gctx.current && windowWidth.current) {
+          const gData = gctx.current.getImageData(0, 0, canvasWidth, canvasHeight).data;
+          console.log('gData :>> ', gData);
+          graphicPixels.current = [];
+    
+          for (let i = gData.length; i >= 0; i -= 4) {
+            if (gData[i] === 0) {
+              const x = i / 4 % canvasWidth;
+              const y = canvasHeight - Math.floor(Math.floor(i / canvasWidth) / 4);
+      
+              if (x && x % 2 === 0 && y && y % 2 === 0) {
+                graphicPixels.current.push({ x, y });
+              }
+            }
+          }
+      
+          for (let i = 0; i < particles.current.length; i++) {
+            randomPos((particles.current[i].particle as any).targetPosition, false, windowWidth.current);
+          }
+      
+          setTimeout(() => {
+            setParticles();
+          }, 500);
+        }
+      }, 0);
+
     }
   }, [setParticles]);
 
@@ -217,6 +223,7 @@ export default function Canvas(props: { mainContainer: React.MutableRefObject<HT
     initCamera();
     initSlider();
     initBgObjects();
+    currentGraphic.current = 0;
     updateGraphics();
   }, [initBgObjects, initCamera, initCanvas, initScene, initSlider, initStage, updateGraphics]);
 
