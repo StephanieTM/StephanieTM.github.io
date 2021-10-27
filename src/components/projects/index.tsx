@@ -1,10 +1,13 @@
 import React from 'react';
 import { useClassName } from 'app/utils';
+import withRouteContainer from 'app/layout/withRouteContainer';
 import Project from './Project';
 import { projects } from './info';
 import './index.less';
 
-export default function Projects(): JSX.Element {
+export default withRouteContainer(Projects);
+
+function Projects(): JSX.Element {
   const c = useClassName();
 
   return (

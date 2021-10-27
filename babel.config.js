@@ -10,7 +10,8 @@ module.exports = (api) => {
   const plugins = [
     '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-transform-runtime',
-    isProd ? null : 'react-hot-loader/babel'
+    '@babel/plugin-proposal-class-properties',
+    isProd ? null : 'react-hot-loader/babel',
   ].filter(Boolean);
 
   return {
@@ -19,7 +20,7 @@ module.exports = (api) => {
     env: {
       test: {
         presets: [
-          ['@babel/preset-env', { modules: 'commonjs' }]
+          ['@babel/preset-env', { modules: 'commonjs' }],
         ],
         plugins: ['@babel/plugin-transform-modules-commonjs'],
       },

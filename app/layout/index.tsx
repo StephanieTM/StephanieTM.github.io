@@ -1,5 +1,6 @@
 import React from 'react';
 import { IRouteConfig, routes } from 'app/routers/routes';
+// import BackGround from './BackGround';
 import Header from './Header';
 import Body from './Body';
 import './index.less';
@@ -24,6 +25,7 @@ export default function AppLayout(): JSX.Element {
 
   return (
     <div className="app-container">
+      {/* <BackGround /> */}
       <Header />
       <Body routes={flattenRoutes} />
     </div>
