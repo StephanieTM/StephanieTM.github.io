@@ -155,8 +155,6 @@ export default function Canvas(props: { mainContainer: React.MutableRefObject<HT
             }
           }
         }
-
-        console.log('count :>> ', count);
     
         for (let i = 0; i < particles.current.length; i++) {
           randomPos((particles.current[i].particle as any).targetPosition, false, windowWidth.current);
